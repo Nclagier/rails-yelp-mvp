@@ -1,0 +1,29 @@
+<div class="container my-5">
+	<div class="card-trip">
+	  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+	  <div class="card-trip-infos">
+	    <div>
+	      <h2><%= @restaurant.name %></h2>
+	      <p>Address: <%= @restaurant.address %></p>
+	      <p>Phone Number: <%= @restaurant.phone_number %></p>
+	    </div>
+	    <h2 class="card-trip-pricing"><%= @restaurant.category %></h2>
+	  </div>
+	</div>
+	<%= link_to 'See All Restaurants', restaurants_path, class: "btn btn-primary my-3"  %>
+	<%= link_to 'Write a Review', new_restaurant_review_path(@restaurant), class: "btn btn-primary my-3"  %>
+</div>
+
+<div class="container">
+	  <h4>Reviews</h4>
+	  <% @restaurant.reviews.each do |review| %>
+	<div class="card-product my-3">
+	  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+	  <div class="card-product-infos">
+	    <h5> <%= review.restaurant.name %></h5>
+	    <h6>Rating: <%= review.rating %></h6>
+	    <h6><%= review.content %></h6>
+	  </div>
+	</div>
+	  <% end %>
+</div>
